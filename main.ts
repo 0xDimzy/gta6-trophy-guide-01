@@ -1,19 +1,22 @@
-// A working gta6-trophy-guide-01 entry (Node 22, standard library only): the guide is this directory's app/ folder,
-// plain static files a browser opens at app/index.html (ES modules, CSS, no build step), offline: it loads nothing
-// over the network, and its trophy list and guides are app/data/trophies.json. The program hands it in: it copies app/
-// and screenshots/ from beside this file to /output and writes /output/dossier.json, the summary the judge reads (your
-// screenshots, the first load's files and bytes, and your source), with the vendored make.fun library. Leave
-// vendor/makefun-frontend.ts as it is: the scorer requires dossier.json to be byte for byte what its own copy writes.
+// Leonida Trophy Guide — GTA VI (PlayStation 5).
 //
-// Only the plumbing, not a winner: a plain checklist of the 55 trophies with a one-line hint each. Write a real guide
-// for every trophy in your own words, a roadmap to the platinum, filters and a spoiler setting in app/, put 3 or 4 PNG
-// or JPEG screenshots of it in screenshots/ (the first by name is the cover; shots.json says which views this
-// starter's were taken of), and run it.
+// An offline, single-page trophy guide and tracker for all 55 official Grand Theft Auto VI trophies.
+// The guide lives in app/ as plain static files (index.html, app.js, style.css) with no build step and no
+// network requests at runtime; trophy data, guides and sources come from app/data/trophies.json, which is read
+// verbatim and never altered. Earned state is stored in localStorage under gta6-trophy-guide-v1 and can be
+// exported or imported as JSON. The checklist shows every trophy's official name, description, grade, kind,
+// missable flag, roadmap stage, guide text and source links, and supports kind/grade/text filters, a "hide
+// earned" toggle and a spoiler setting that masks unearned story trophies. A five-stage roadmap links each
+// trophy to its checklist entry, and URL hash routing (#view, #filter, #grade, #spoiler, #hide, #open, #earned)
+// lets any view or progress state be shared as a link.
 //
-// Serve it locally with `node serve.ts`, then open http://localhost:8080.
+// This entry is handed in by main.ts: it copies app/ and screenshots/ next to this file into /output and writes
+// /output/dossier.json via the vendored make.fun library (buildDossier). Leave vendor/makefun-frontend.ts as it
+// is — the scorer requires dossier.json to be byte for byte what its own copy writes.
+//
+// Run it locally: `node serve.ts`, then open http://localhost:8080.
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
