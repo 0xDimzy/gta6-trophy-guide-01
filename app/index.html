@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker (PS5)</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies in Grand Theft Auto VI: cited steps, platinum roadmap, missable watch and progress tracking.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">LL</div>
+    <div>
+      <h1>Leonida Ledger</h1>
+      <p class="tagline">GTA VI trophy guide &amp; tracker · PS5 · 55 trophies · every step cited</p>
+    </div>
+  </div>
+  <div class="progress-box" role="status" aria-label="Overall progress">
+    <div class="progress-top">
+      <span class="progress-pct" id="progress-pct">0%</span>
+      <span class="progress-count" id="progress-count">0 / 55 earned</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="grade-counts" id="grade-counts"></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" class="tab" data-view="checklist">Checklist</button>
+  <button type="button" class="tab" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-view="missables">Missables</button>
+  <button type="button" class="tab" data-view="sources">Sources</button>
+</nav>
+
+<section class="toolbar" id="toolbar">
+  <label class="field grow">Search
+    <input id="q" type="search" placeholder="Trophy name, mission, keyword…" autocomplete="off">
+  </label>
+  <label class="field">Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="misc">Misc / quests</option>
+      <option value="missable">Missable only</option>
+      <option value="online">Online (none — all offline)</option>
+    </select>
+  </label>
+  <label class="field">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="check"><input id="hide-earned" type="checkbox"> Hide earned</label>
+  <label class="check"><input id="spoiler" type="checkbox"> Spoiler shield <span class="hint">(hide story names until earned)</span></label>
+  <div class="toolbar-actions">
+    <button id="export" type="button">Export JSON</button>
+    <label class="import-btn">Import JSON<input id="import" type="file" accept="application/json,.json" hidden></label>
+    <button id="reset" type="button" class="danger">Reset</button>
+  </div>
+</section>
+
+<p class="status-line" id="status-line">Loading trophies…</p>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div id="cards"></div>
+    <p id="empty" class="empty" hidden>No trophies match the current filters. <button type="button" id="clear-filters">Clear filters</button></p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <div class="view-intro">
+      <h2>Roadmap to Platinum — “Vice Got a Price!”</h2>
+      <p>One playthrough, roughly <strong>200 hours</strong>, difficulty <strong>4/10</strong>, no online trophies, no mission replay, cheats disable trophies. Five stages, in order. Click any trophy to jump to its cited guide in the checklist.</p>
+    </div>
+    <div id="roadmap"></div>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <div class="view-intro">
+      <h2>Missables &amp; watchlist</h2>
+      <p>Only <strong>one</strong> trophy is potentially missable. Everything else can be finished in free-roam after the story. The watchlist below covers temporary unavailability and permanent-profile traps that do <em>not</em> lock the platinum — but are worth knowing before they bite.</p>
+    </div>
+    <div id="missables"></div>
+  </section>
+
+  <section id="view-sources" class="view" hidden>
+    <div class="view-intro">
+      <h2>Source matrix</h2>
+      <p>Every guide step in this app cites the page it came from. This matrix shows which sources back which trophies — click a trophy to open its guide. Guides were written in our own words; sources are linked for verification, not copied.</p>
+      <p id="sources-stats" class="sources-stats"></p>
+    </div>
+    <div id="sources"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Fan-made offline tracker. Not affiliated with Rockstar Games or PlayStation. Trophy names &amp; descriptions are the official PS5 list (2026-11-18). Progress is stored only in your browser (localStorage) — export JSON to back it up. Five hidden trophies had no confirmed method at launch; their guides say so honestly instead of inventing steps.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
